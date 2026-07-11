@@ -1,7 +1,7 @@
 # MicroLanguageSwarm — Pulse 350M BitNet Nyelvi Modell
 
 **Verzió:** 1.0  
-**Szerző:** Zsombi (AI asszisztens segítségével)  
+**Szerző:** Zsombi & Hermes Agent (Nous Research)  
 **Státusz:** Aktív fejlesztés
 
 ---
@@ -155,4 +155,4 @@ python rlaif_batched.py
 
 ## Fejlesztő
 
-Zsombi (AI asszisztens segítségével) (AI asszisztens segítségével)
+Zsombi & Hermes Agent (Nous Research) (AI asszisztens segítségével)
