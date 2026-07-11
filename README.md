@@ -1,158 +1,158 @@
-# MicroLanguageSwarm — Pulse 350M BitNet Nyelvi Modell
+# MicroLanguageSwarm — Pulse 350M BitNet Language Model
 
-**Verzió:** 1.0  
-**Szerző:** Zsombi & Hermes Agent (Nous Research)  
-**Státusz:** Aktív fejlesztés
-
----
-
-## Leírás
-
-A MicroLanguageSwarm projekt egy **350 millió paraméteres, 1.58-bites BitNet nyelvi modellt** (Pulse) valósít meg. A modell rendkívül hatékony: mindössze **~84 MB** méretű BitNet formátumban és CPU-n **30+ token/másodperc** sebességgel fut. A projekt tartalmazza a teljes Kaggle 4-szakaszos training pipeline-t, RLAIF finomhangolást, és magyar nyelvi adatokra optimalizált tanítást.
+**Version:** 1.0  
+**Author:** Zsombi & Hermes Agent (Nous Research)  
+**Status:** Active development
 
 ---
 
-## Fájlszerkezet
+## Description
+
+The MicroLanguageSwarm project implements a **350 million parameter, 1.58-bit BitNet language model** (Pulse). The model is highly efficient: only **~84 MB** in BitNet format and runs on CPU at **30+ tokens/second**. The project includes the full Kaggle 4-session training pipeline, RLAIF fine-tuning, and training optimized for Hungarian language data.
+
+---
+
+## File Structure
 
 ```
 MicroLanguageSwarm/
 │
-├── pulse_350m_bitnet.py      # Pulse 350M modell architektúra (BitLinear + GQA + RoPE)
-├── train_bitnet_local.py     # Helyi GPU training pipeline
-├── kaggle_session1.py        # Kaggle Session 1 — adat előkészítés
+├── pulse_350m_bitnet.py      # Pulse 350M model architecture (BitLinear + GQA + RoPE)
+├── train_bitnet_local.py     # Local GPU training pipeline
+├── kaggle_session1.py        # Kaggle Session 1 — data preparation
 │
-├── distill_bitnet.py         # Tudás desztilláció tanár modellből
-├── distill_cross.py          # Kereszt-desztilláció
-├── gen_teacher_data.py       # Tanár modell adatgenerálás
+├── distill_bitnet.py         # Knowledge distillation from teacher model
+├── distill_cross.py          # Cross-distillation
+├── gen_teacher_data.py       # Teacher model data generation
 │
-├── rlaif_train.py            # RLAIF finomhangolás
-├── rlaif_batched.py          # Batch-elt RLAIF training
-├── rlaif_kw.py               # RLAIF kulcsszó optimalizálás
+├── rlaif_train.py            # RLAIF fine-tuning
+├── rlaif_batched.py          # Batched RLAIF training
+├── rlaif_kw.py               # RLAIF keyword optimization
 │
-├── persistent_train.py       # Perzisztens GPU training (watchdoggal)
-├── continue_train.py         # Training folytatása checkpointból
-├── fast_train.py             # Gyorsított training
-├── train_all_shards.py       # Mind a 4 shard betanítása
-├── watchdog.py               # GPU watchdog (TDR védelem)
+├── persistent_train.py       # Persistent GPU training (with watchdog)
+├── continue_train.py         # Continue training from checkpoint
+├── fast_train.py             # Accelerated training
+├── train_all_shards.py       # Train all 4 shards
+├── watchdog.py               # GPU watchdog (TDR protection)
 │
-├── query_bitnet.py           # Modell lekérdezés / inference
-├── test_generate.py          # Szöveggenerálás teszt
-├── test_bitnet.py            # BitNet unit teszt
-├── test_rlaif.py             # RLAIF teszt
-├── check_model.py            # Modell ellenőrzés
-├── check_ckpt.py             # Checkpoint ellenőrzés
-├── check_datasets.py         # Adathalmaz ellenőrzés
+├── query_bitnet.py           # Model query / inference
+├── test_generate.py          # Text generation test
+├── test_bitnet.py            # BitNet unit test
+├── test_rlaif.py             # RLAIF test
+├── check_model.py            # Model verification
+├── check_ckpt.py             # Checkpoint verification
+├── check_datasets.py         # Dataset verification
 │
-├── benchmark.py              # Benchmark mérés
-├── bench_speed.py            # Sebesség benchmark
-├── quick_test.py             # Gyors ellenőrző teszt
-├── test_cuda_remote.py       # CUDA távoli teszt
+├── benchmark.py              # Benchmark measurement
+├── bench_speed.py            # Speed benchmark
+├── quick_test.py             # Quick validation test
+├── test_cuda_remote.py       # CUDA remote test
 │
-├── download_hu_data.py       # Magyar adatok letöltése
+├── download_hu_data.py       # Hungarian data download
 │
-├── run_training.vbs          # VBS indító script
-├── run_pt.bat                # Persistent training indító
-├── run_s3.bat                # Session 3 indító
+├── run_training.vbs          # VBS launcher script
+├── run_pt.bat                # Persistent training launcher
+├── run_s3.bat                # Session 3 launcher
 │
-├── teacher_model/            # Tanár modell (finomhangolt NEURA)
+├── teacher_model/            # Teacher model (fine-tuned NEURA)
 │   ├── model.safetensors
 │   ├── config.json
 │   └── tokenizer.json
 │
-├── bitnet_kaggle_data/       # Kaggle adatok
+├── bitnet_kaggle_data/       # Kaggle data
 │   ├── shard_0.pt ... shard_3.pt
 │   └── dataset-metadata.json
 │
-├── bitnet_kernel_push/       # Kaggle kernel push fájlok
-├── session1_kernel/          # Session 1 kernel kimenet
+├── bitnet_kernel_push/       # Kaggle kernel push files
+├── session1_kernel/          # Session 1 kernel output
 │
 └── __pycache__/              # Python cache
 ```
 
 ---
 
-## Használat
+## Usage
 
-### Modell betöltése és futtatása
+### Loading and Running the Model
 
 ```bash
-# Környezet
+# Environment setup
 pip install torch sentencepiece
 
-# Modell betöltése
+# Load model
 python query_bitnet.py
 
-# Gyors teszt
+# Quick test
 python quick_test.py
 ```
 
-### Training indítása lokálisan
+### Local Training
 
 ```bash
-# Helyi GPU training
+# Local GPU training
 python train_bitnet_local.py
 
-# Perzisztens training (watchdog védelemmel)
+# Persistent training (with watchdog protection)
 run_pt.bat
 
-# Session 3 indítása
+# Start Session 3
 run_s3.bat
 ```
 
-### Kaggle training pipeline
+### Kaggle Training Pipeline
 
-1. **Session 1:** Adat előkészítés — `kaggle_session1.py`
-2. **Session 2:** Training indítása — `train_all_shards.py`
-3. **Session 3:** Folytatás — `run_s3.bat`
-4. **Session 4:** RLAIF finomhangolás — `rlaif_train.py`
+1. **Session 1:** Data preparation — `kaggle_session1.py`
+2. **Session 2:** Start training — `train_all_shards.py`
+3. **Session 3:** Continuation — `run_s3.bat`
+4. **Session 4:** RLAIF fine-tuning — `rlaif_train.py`
 
-### Tudás desztilláció
+### Knowledge Distillation
 
 ```bash
-# Tanár adatok generálása
+# Generate teacher data
 python gen_teacher_data.py
 
-# Desztilláció
+# Distillation
 python distill_bitnet.py
 
-# Kereszt-desztilláció
+# Cross-distillation
 python distill_cross.py
 ```
 
-### RLAIF finomhangolás
+### RLAIF Fine-Tuning
 
 ```bash
 python rlaif_train.py
-# vagy batch-elt verzió:
+# or batched version:
 python rlaif_batched.py
 ```
 
 ---
 
-## Architektúra
+## Architecture
 
-| Komponens | Specifikáció |
+| Component | Specification |
 |-----------|-------------|
-| **Típus** | 1.58-bit BitNet (BitLinear rétegek) |
-| **Paraméterek** | 350M / ~84 MB |
+| **Type** | 1.58-bit BitNet (BitLinear layers) |
+| **Parameters** | 350M / ~84 MB |
 | **Attention** | GQA (Grouped Query Attention) |
-| **Normalizáció** | SubLN (Sub-Layer Normalization) |
-| **Aktiváció** | ReLU² |
-| **Pozíció** | RoPE (Rotary Position Embedding) |
-| **Bias** | Nincs (bias=False) |
-| **Sebesség** | CPU: 30+ tok/sec |
+| **Normalization** | SubLN (Sub-Layer Normalization) |
+| **Activation** | ReLU² |
+| **Position** | RoPE (Rotary Position Embedding) |
+| **Bias** | None (bias=False) |
+| **Speed** | CPU: 30+ tok/sec |
 
 ---
 
-## Függőségek
+## Dependencies
 
 - **Python** 3.10+
-- **PyTorch** 2.0+ (CUDA opcionális)
+- **PyTorch** 2.0+ (CUDA optional)
 - **SentencePiece** (tokenizer)
 - **NumPy**
 
 ---
 
-## Fejlesztő
+## Developer
 
-Zsombi & Hermes Agent (Nous Research) (AI asszisztens segítségével)
+Zsombi & Hermes Agent (Nous Research)
