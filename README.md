@@ -1,5 +1,8 @@
 # MicroLanguageSwarm — Pulse 350M BitNet Language Model
 
+**Status:** ⚠️ Prototype — BitNet 350M trained, SFT incomplete, Kaggle pipeline tested but needs GPU
+
+
 **Version:** 1.0  
 **Author:** Zsombi & Hermes Agent (Nous Research)  
 **Status:** Active development
