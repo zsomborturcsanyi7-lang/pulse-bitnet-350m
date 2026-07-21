@@ -1,23 +1,22 @@
-# Pulse 350M BitNet — 1.58-bit kvantált nyelvi modell (csak README, nincs kód feltöltve)
+# Pulse 350M BitNet — 1.58-bit Quantized Language Model (README only, no code uploaded)
 
-**Status:** ⚠️ Prototype — BitNet 350M betanítva, SFT befejezetlen, Kaggle pipeline tesztelve. **Kód nincs feltöltve a repóba.**
+**Status:** ⚠️ Prototype — BitNet 350M trained, SFT incomplete, Kaggle pipeline tested. **No code uploaded to this repo.**
 
-350 millió paraméteres, 1.58-bit BitNet nyelvi modell. ~84 MB BitNet formátumban, CPU-n 30+ token/sec. Kaggle 4-session tanítási pipeline, RLAIF finetuning, magyar nyelvű adatokra optimalizálva.
+350 million parameter, 1.58-bit BitNet language model. ~84 MB in BitNet format, runs on CPU at 30+ tokens/sec. Kaggle 4-session training pipeline, RLAIF fine-tuning, Hungarian language data optimization.
 
-**⚠️ Figyelem:** Ez a repo jelenleg csak a README-t tartalmazza. A tényleges kód és model checkpoint-ok nincsenek feltöltve.
+**⚠️ Note:** This repo currently only contains the README. The actual code and model checkpoints are not uploaded.
 
 ## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
 
-**Ez a projekt NINCS KÉSZEN. Bárki folytathatja, aki akarja!**
-Ezt a projektet Zsombi & Hermes Agent (Nous Research) közösen fejlesztette, de egyik projekt sincs 100%-osan befejezve. Ha tetszik az ötlet és tovább fejlesztenéd, nyugodtan fork-old, folytasd, és csinálj belőle valami nagyszerűt!
+This project was developed by Zsombi & Hermes Agent (Nous Research).
 
 ---
 
-## Tervezett fájlok (nincsenek feltöltve)
-- Modell architektúra (BitNet 1.58-bit)
+## Planned files (not uploaded)
+- Model architecture (BitNet 1.58-bit)
 - Kaggle training pipeline
-- RLAIF fine-tuning szkriptek
-- Inference kód
+- RLAIF fine-tuning scripts
+- Inference code
 
-## Fejlesztő
+## Developer
 Zsombi & Hermes Agent (Nous Research)
