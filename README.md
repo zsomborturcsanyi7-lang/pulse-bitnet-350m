@@ -1,14 +1,14 @@
 # pulse-bitnet-350m
 
-1.58-bites kvantált magyar nyelvi modell tanító scriptek és adatelőkészítő pipeline.
+1.58-bit quantized Hungarian language model training scripts and data processing pipeline.
 
-## 📌 A projekt célja
-Magyar nyelvű 1.58-bites (ternary) BitNet nyelvi modell tanítása kis erőforrás-igényű környezetekhez.
+## 📌 Overview & Purpose
+Focuses on training a 1.58-bit (ternary) BitNet language model on a Hungarian corpus for low-resource inference environments.
 
-## ⚙️ Technológiai stakk & Működés
-- PyTorch, BitNet architektúra, Python
+## ⚙️ Tech Stack & Architecture
+- PyTorch, BitNet Architecture, Python
 
-## 🚀 Telepítés és Használat
+## 🚀 Installation & Quickstart
 ```bash
 git clone https://github.com/zsomborturcsanyi7-lang/pulse-bitnet-350m.git
 cd pulse-bitnet-350m
@@ -16,5 +16,5 @@ pip install -r requirements.txt
 python train_350m_assistant.py
 ```
 
-## 📊 Status
-⚠️ **Kísérleti tanító pipeline**.
+## 📊 Project Status
+⚠️ **Experimental Training Pipeline**.
