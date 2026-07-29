@@ -1,4 +1,4 @@
-# Pulse 350M BitNet — 1.58-bit Quantized Language Model (README only, no code uploaded)
+# pulse-bitnet-350m
 
 **Status:** ⚠️ Prototype — BitNet 350M trained, SFT incomplete, Kaggle pipeline tested. **No code uploaded to this repo.**
 
