@@ -1,22 +1,20 @@
 # pulse-bitnet-350m
 
-**Status:** ⚠️ Prototype — BitNet 350M trained, SFT incomplete, Kaggle pipeline tested. **No code uploaded to this repo.**
+1.58-bites kvantált magyar nyelvi modell tanító scriptek és adatelőkészítő pipeline.
 
-350 million parameter, 1.58-bit BitNet language model. ~84 MB in BitNet format, runs on CPU at 30+ tokens/sec. Kaggle 4-session training pipeline, RLAIF fine-tuning, Hungarian language data optimization.
+## 📌 A projekt célja
+Magyar nyelvű 1.58-bites (ternary) BitNet nyelvi modell tanítása kis erőforrás-igényű környezetekhez.
 
-**⚠️ Note:** This repo currently only contains the README. The actual code and model checkpoints are not uploaded.
+## ⚙️ Technológiai stakk & Működés
+- PyTorch, BitNet architektúra, Python
 
-## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
+## 🚀 Telepítés és Használat
+```bash
+git clone https://github.com/zsomborturcsanyi7-lang/pulse-bitnet-350m.git
+cd pulse-bitnet-350m
+pip install -r requirements.txt
+python train_350m_assistant.py
+```
 
-This project was developed by Zsombi & Hermes Agent (Nous Research).
-
----
-
-## Planned files (not uploaded)
-- Model architecture (BitNet 1.58-bit)
-- Kaggle training pipeline
-- RLAIF fine-tuning scripts
-- Inference code
-
-## Developer
-Zsombi & Hermes Agent (Nous Research)
+## 📊 Status
+⚠️ **Kísérleti tanító pipeline**.
